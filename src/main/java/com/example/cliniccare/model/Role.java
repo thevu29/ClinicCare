@@ -26,4 +26,9 @@ public class Role {
 
     @OneToMany(mappedBy = "role")
     private List<User> userList;
+
+    @PrePersist
+    protected void onCreate() {
+        createAt = new Date();
+    }
 }
